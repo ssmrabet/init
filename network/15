@@ -1,0 +1,2 @@
+#On ajoute le nom de domaine suivie de son adresse ip dans le DNS locale qui est /etc/hosts
+#On peut utilser cette commande : echo "intra.42.fr 46.19.122.85" >> /etc/hosts

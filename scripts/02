@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "apt update && apt upgrade >> /var/log/update_script.log" > ~/update_srcs.sh
+echo "0 4 * * 2 root sh ~/update_srcs.sh" | crontab

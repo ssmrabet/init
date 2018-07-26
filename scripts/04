@@ -1,0 +1,23 @@
+#!/bin/bash
+
+echo "#!/bin/bash
+
+if [ ! -e ~/crontab.old ]
+then
+	echo \"Crontab.old init\"
+	cp /etc/crontab ~/crontab.old
+fi
+
+DIFF=\$(diff ~/crontab.old /etc/crontab) 
+if [ \"\$DIFF\" != \"\" ]
+then
+	echo \"Crontab changed\"
+	mail -s \"Crontab has been modified\" root
+	echo \"Crontab.old updated\"
+	cat /etc/crontab > ~/crontab.old
+fi
+" > ~/crontab_watcher.sh
+
+chmod +x ~/crontab_watcher.sh
+
+echo "0 0 * * * root sh ~/crontab_watcher.sh" | crontab

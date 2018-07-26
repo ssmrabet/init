@@ -1,0 +1,2 @@
+#Pour récuperer l'adresse du DNS on peut regarder dans le fichier /etc/resolv.conf
+#Si on veut récuperer le chemin du fichier il suffit d'utiliser var=`nslookup slash16.org | awk '/Server/{print $2}'` && grep -rnw /etc -e $var
